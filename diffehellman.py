@@ -1,4 +1,5 @@
 import pyDH
+
 d1 = pyDH.DiffieHellman()
 d2 = pyDH.DiffieHellman()
 d1_pubkey = d1.gen_public_key()

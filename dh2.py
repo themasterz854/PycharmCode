@@ -30,6 +30,7 @@ class DH_Endpoint(object):
             decrypted_message += chr(ord(c) - key)
         return decrypted_message
 
+
 message = "good morning"
 s_public = 197
 s_private = 199
@@ -38,20 +39,19 @@ m_private = 157
 S = DH_Endpoint(s_public, m_public, s_private)
 M = DH_Endpoint(s_public, m_public, m_private)
 
-s_partial=S.generate_partial_key()
+s_partial = S.generate_partial_key()
 print(s_partial)
 
-m_partial=M.generate_partial_key()
+m_partial = M.generate_partial_key()
 print(m_partial)
 
-s_full=S.generate_full_key(m_partial)
+s_full = S.generate_full_key(m_partial)
 print(s_full)
 
-m_full=M.generate_full_key(s_partial)
+m_full = M.generate_full_key(s_partial)
 print(m_full)
 
-
-m_encrypted=M.encrypt_message(message)
+m_encrypted = M.encrypt_message(message)
 print(m_encrypted)
 
 message = S.decrypt_message(m_encrypted)
